@@ -1,5 +1,5 @@
-package linkedlist;
-public class LinkedListCount {
+
+public class LinkedListSearchMiddle {
     static class Node {
         int data;
         Node next;
@@ -9,20 +9,20 @@ public class LinkedListCount {
         }
     }
 
-    public static int countNodes(Node head) {
-        int count = 0;
-        Node temp = head;
-        while (temp != null) {
-            count++;
-            temp = temp.next;
+    public static int searchMiddle(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return count;
+        return slow.data;
     }
 
     public static void main(String[] args) {
         Node head = new Node(10);
         head.next = new Node(20);
         head.next.next = new Node(30);
-        System.out.println(countNodes(head));
+        System.out.print(searchMiddle(head));
     }
 }

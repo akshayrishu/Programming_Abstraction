@@ -1,4 +1,4 @@
-package linkedlist;
+
 
 public class RemoveDuplicatesSorted {
     static class Node {

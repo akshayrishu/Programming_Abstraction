@@ -1,5 +1,5 @@
-package linkedlist;
-public class LinkedListPrint {
+
+public class LinkedListSearch {
     static class Node {
         int data;
         Node next;
@@ -9,18 +9,23 @@ public class LinkedListPrint {
         }
     }
 
-    public static void print(Node head) {
+    public static boolean search(Node head, int target) {
         Node temp = head;
         while (temp != null) {
-            System.out.print(temp.data + " ");
+            if (temp.data == target) return true;
             temp = temp.next;
         }
+        return false;
     }
 
     public static void main(String[] args) {
         Node head = new Node(10);
         head.next = new Node(20);
         head.next.next = new Node(30);
-        print(head);
+        if (search(head, 30)) {
+            System.out.println("Found");
+        } else {
+            System.out.println("not found");
+        }
     }
 }
